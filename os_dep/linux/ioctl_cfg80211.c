@@ -1762,7 +1762,7 @@ static int cfg80211_rtw_add_key(struct wiphy *wiphy,
 		goto addkey_end;
 	}
 
-	strncpy((char *)param->u.crypt.alg, alg_name, IEEE_CRYPT_ALG_NAME_LEN);
+	strscpy((char *)param->u.crypt.alg, alg_name, IEEE_CRYPT_ALG_NAME_LEN);
 
 
 	if (!mac_addr || is_broadcast_ether_addr(mac_addr)
@@ -2006,7 +2006,8 @@ static int cfg80211_rtw_del_key(struct wiphy *wiphy,
 	struct wireless_dev *wdev
 #else
 	struct net_device *ndev
-#endif,
+#endif
+,
 #if (LINUX_VERSION_CODE >= KERNEL_VERSION(6, 1, 0))
         int link_id,
 #endif
@@ -2090,7 +2091,8 @@ int cfg80211_rtw_set_default_mgmt_key(struct wiphy *wiphy,
 	struct wireless_dev *wdev
 #else
 	struct net_device *ndev
-#endif,
+#endif
+,
 #if (LINUX_VERSION_CODE >= KERNEL_VERSION(6, 1, 0))
         int link_id,
 #endif
@@ -2248,7 +2250,8 @@ static int cfg80211_rtw_get_station(struct wiphy *wiphy,
 	struct wireless_dev *wdev
 #else
 	struct net_device *ndev
-#endif,
+#endif
+,
 #if (LINUX_VERSION_CODE < KERNEL_VERSION(3, 16, 0))
 	u8 *mac,
 #else
@@ -4564,7 +4567,7 @@ static int rtw_cfg80211_add_monitor_if(_adapter *padapter, char *name,
 #endif
 
 	mon_ndev->type = ARPHRD_IEEE80211_RADIOTAP;
-	strncpy(mon_ndev->name, name, IFNAMSIZ);
+	strscpy(mon_ndev->name, name, IFNAMSIZ);
 	mon_ndev->name[IFNAMSIZ - 1] = 0;
 #if (LINUX_VERSION_CODE >= KERNEL_VERSION(4, 1, 0))
 	mon_ndev->name_assign_type = name_assign_type;
@@ -5216,7 +5219,8 @@ static int	cfg80211_rtw_add_station(struct wiphy *wiphy,
 	struct wireless_dev *wdev
 #else
 	struct net_device *ndev
-#endif,
+#endif
+,
 #if (LINUX_VERSION_CODE < KERNEL_VERSION(3, 16, 0))
 	u8 *mac,
 #else
@@ -5378,7 +5382,8 @@ static int	cfg80211_rtw_del_station(struct wiphy *wiphy,
 	struct wireless_dev *wdev
 #else
 	struct net_device *ndev
-#endif,
+#endif
+,
 #if (LINUX_VERSION_CODE < KERNEL_VERSION(3, 16, 0))
 	u8 *mac
 #elif (LINUX_VERSION_CODE < KERNEL_VERSION(3, 19, 0))
@@ -5493,7 +5498,8 @@ static int	cfg80211_rtw_change_station(struct wiphy *wiphy,
 	struct wireless_dev *wdev
 #else
 	struct net_device *ndev
-#endif,
+#endif
+,
 #if (LINUX_VERSION_CODE < KERNEL_VERSION(3, 16, 0))
 	u8 *mac,
 #else
@@ -5619,7 +5625,8 @@ static int	cfg80211_rtw_dump_station(struct wiphy *wiphy,
 	struct wireless_dev *wdev
 #else
 	struct net_device *ndev
-#endif,
+#endif
+,
 		int idx, u8 *mac, struct station_info *sinfo)
 {
 #if (LINUX_VERSION_CODE >= KERNEL_VERSION(7, 0, 0))
