@@ -7026,7 +7026,8 @@ static int cfg80211_rtw_mgmt_tx(struct wiphy *wiphy,
 	u64 cookie
 #else
 	u64 *cookie
-#endif)
+#endif
+)
 {
 	u64 cookie_value;
 
