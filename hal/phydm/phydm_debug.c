@@ -3550,7 +3550,7 @@ phydm_fw_trace_handler(
 		return;
 	}
 
-	strncpy((char *)&dm->fw_debug_trace[dm->c2h_cmd_start],
+	memcpy((char *)&dm->fw_debug_trace[dm->c2h_cmd_start],
 		(char *)&cmd_buf[1], (cmd_len - 1));
 	dm->c2h_cmd_start += (cmd_len - 1);
 	dm->fw_buff_is_enpty = false;
