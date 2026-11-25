@@ -1,10 +1,10 @@
-## rtl8188eus v5.3.9
+This fork was edited using ChatGPT and supposed to work on 7.3.5-2-cachyos.
+
+## README.md | rtl8188eus v5.3.9
 
 
 # THESE DRIVERS IS DEPRECATED.
 # Use the mac80211 drivers over at [https://github.com/lwfinger/rtw88](https://github.com/lwfinger/rtw88)
-
-
 
 # Realtek rtl8188eus &amp; rtl8188eu &amp; rtl8188etv WiFi drivers
 
